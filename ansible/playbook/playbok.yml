@@ -1,0 +1,12 @@
+---
+- name: Step 1 - Install Docker
+  hosts: all
+  become: true
+  roles:
+    - docker
+
+- name: Step 2 - Deploy Application
+  hosts: all
+  become: true
+  roles:
+    - webapp
