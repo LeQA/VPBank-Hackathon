@@ -32,7 +32,7 @@ Database expose port 3306
     Solution: Using "mysqli_real_escape_string" to escape special character in the input which help prevent SQL injection.
  
 <p align="center">
-  <img src="images/sqli_fix.png" alt="SQL injection fix">
+  <img src="images/SQLi_fix.png" alt="SQL injection fix">
 </p>
 
 - **Cryptography Failures**: Application create user_id by hashing usernmae then store its inside database but using a weak algorithm like md4, md5 which is easy to crack.
