@@ -1,6 +1,6 @@
 ---
 # tasks file for webapp
----
+
 - name: Ensure the destination directory exists
   file:
     path: "{{ ansible_env.HOME }}/app"
@@ -8,21 +8,12 @@
 
 - name: Copy Webapplication directory to remote host
   copy:
-    src: Webapplication/
+    src: files/Webapplication/
     dest: "{{ ansible_env.HOME }}/app/"
     mode: '0755'
     directory_mode: '0755'
 
-- name: Change directory ownership to the current user
-  become: yes
-  file:
-    path: "{{ ansible_env.HOME }}/app"
-    state: directory
-    recurse: yes
-    owner: "{{ ansible_user }}"
-    group: "{{ ansible_user }}"
-
 - name: Run Docker Compose
-  command: docker-compose up -d
+  command: docker compose up -d
   args:
     chdir: "{{ ansible_env.HOME }}/app"

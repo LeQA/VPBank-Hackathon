@@ -1,8 +1,10 @@
 # Use the official PHP 7.2 Apache image
 FROM php:7.2-apache
 
+RUN apt-get update && apt-get install inetutils-ping dnsutils netcat -y
+
 # Install the necessary PHP extensions for MySQL support
-RUN docker-php-ext-install mysqli pdo pdo_mysql
+RUN docker-php-ext-install mysqli pdo pdo_mysql 
 
 # Copy the web challenge into the default Document Root
 WORKDIR /var/www/html/
